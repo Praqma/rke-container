@@ -16,14 +16,16 @@ jobs:
             GITCOMMIT=${CIRCLE_SHA1::7}
             NOW=$(date +%Y%m%d-%H%M)
             FULLNAME="$REPO:$NOW-$GITCOMMIT-$RKE_VERSION"
+            SHORTNAME="$REPO:$RKE_VERSION"
             echo "FULLNAME=$FULLNAME" >> $BASH_ENV
+            echo "SHORTNAME=$SHORTNAME" >> $BASH_ENV
             echo "Branch $CIRCLE_BRANCH"
             echo "Using full name $FULLNAME"
             echo "Using version $RKE_VERSION"
       - run:
           name: Build container image
           command: |
-            docker build --build-arg RKE_VERSION=$RKE_VERSION -t $FULLNAME .
+            docker build --build-arg RKE_VERSION=$RKE_VERSION -t $SHORTNAME .
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker tag $FULLNAME $REPO:latest
             fi
