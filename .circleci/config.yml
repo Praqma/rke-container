@@ -27,7 +27,7 @@ jobs:
           command: |
             docker build --build-arg RKE_VERSION=$RKE_VERSION -t $SHORTNAME .
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker tag $FULLNAME $REPO:latest
+              docker tag $SHORTNAME $REPO:latest
             fi
       - run:
           name: Push container image
