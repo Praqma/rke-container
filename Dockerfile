@@ -9,5 +9,9 @@ RUN apk add --update ca-certificates && apk add --update -t deps curl \
     && apk del --purge deps \
     && rm /var/cache/apk/*
 
+# Placeholder, mount folder containing cluster.yml and where kube-config output file should be writen
+RUN mkdir /work
+WORKDIR /work
+
 ENTRYPOINT ["/usr/local/bin/rke"]
 CMD ["help"]
