@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-ARG RKE_VERSION="v0.3.1"
+ARG RKE_VERSION="v0.3.2"
 ENV RKE_VERSION=$RKE_VERSION
 
 RUN apk add --update ca-certificates && apk add --update -t deps curl \
@@ -9,7 +9,7 @@ RUN apk add --update ca-certificates && apk add --update -t deps curl \
     && apk del --purge deps \
     && rm /var/cache/apk/*
 
-# Placeholder, mount folder containing cluster.yml and where kube-config output file should be writen
+# Placeholder, mount folder containing cluster.yml, ssh-keys and where kube-config output file should be writen
 RUN mkdir /work
 WORKDIR /work
 
