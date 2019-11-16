@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-ARG RKE_VERSION="v0.3.2"
+ARG RKE_VERSION
 ENV RKE_VERSION=$RKE_VERSION
 
 RUN apk add --update ca-certificates && apk add --update -t deps curl \
