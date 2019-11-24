@@ -1,6 +1,6 @@
 # Rancher RKE Container
 
-This repository contain a container version of [Rancher RKE](https://github.com/rancher/rke).
+This repository contain a container version of [Rancher RKE](https://github.com/rancher/rke) - [LICENSE](https://github.com/rancher/rke/blob/master/LICENSE).
 
 Typical usage with `cluster.yml` and e.g. ssh-key material in current working directory:
 
